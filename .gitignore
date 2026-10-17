@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+*.log
+
+# raw training rows - not needed at runtime (only ml/train.py reads these to
+# produce ml/models/*.joblib, which IS committed). Keep the actual dataset
+# local-only; the GPU server only needs the already-trained architecture.
+data/train.jsonl
+data/val.jsonl
+data/test.jsonl
+
+# experiment embedding caches - regenerable via experiments/*/embed_data.py, not
+# worth keeping in git
+experiments/**/emb_*.npy
+
+# internal results - training counts and accuracy figures stay local-only
+experiments/
+ml/models/report.json
